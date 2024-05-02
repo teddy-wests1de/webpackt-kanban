@@ -1,0 +1,22 @@
+{
+  "name": "kanban",
+  "version": "1.0.0",
+  "description": "Webpackt Kanban Project",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teddy-wests1de/webpackt-kanban.git"
+  },
+  "author": "Elrico Landrew",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teddy-wests1de/webpackt-kanban/issues"
+  },
+  "homepage": "https://github.com/teddy-wests1de/webpackt-kanban#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}

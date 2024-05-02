@@ -1,0 +1,180 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto&display=swap";
+@import "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css";
+:root {
+  --box-shadow: #00000029 0px 1px 4px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  text-decoration: none;
+  list-style: none;
+}
+
+.hide {
+  display: none;
+}
+
+.outer-wrap {
+  background-color: #0d479a;
+  width: 100%;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.inner-wrap {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.heading {
+  margin-bottom: 30px;
+}
+
+.heading .title {
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.heading .subtitle {
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.kanban {
+  justify-content: space-evenly;
+  align-items: flex-start;
+  min-height: 80vh;
+  display: flex;
+}
+
+.taskbox {
+  box-shadow: var(--box-shadow);
+  background-color: #d9dfe9;
+  border-radius: 5px;
+  flex-direction: column;
+  min-width: 325px;
+  max-width: 500px;
+  margin: 10px;
+  padding: 15px;
+  display: flex;
+}
+
+.taskbox .title {
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  display: flex;
+}
+
+.taskbox .title span {
+  color: #fff;
+  background-color: #e45826;
+  border-radius: 7px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.cards {
+  padding: 10px 5px;
+}
+
+.card {
+  box-shadow: var(--box-shadow);
+  background-color: #fff;
+  border-radius: 5px;
+  flex-direction: column;
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+}
+
+.card input {
+  background-color: #fff;
+  border: 0;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px;
+  box-shadow: 0 2px 8px #63636333;
+}
+
+.card div {
+  justify-content: space-between;
+  display: flex;
+}
+
+.card div span {
+  align-self: center;
+  padding: 5px 0;
+  font-size: 12px;
+}
+
+.card div span.task-id {
+  color: #fff;
+  background-color: #002366;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.card button {
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  border-radius: 5px;
+  margin-left: 1px;
+  padding: 8px;
+  font-size: 14px;
+  box-shadow: 0 2px 4px #0000002e;
+}
+
+.card .edit {
+  background-color: #646464;
+}
+
+.card .update {
+  background-color: #005ed8;
+}
+
+.card .delete {
+  background-color: #e20000;
+}
+
+.add {
+  display: flex;
+}
+
+.add input {
+  border: 0;
+  border-radius: 5px;
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 16px;
+  box-shadow: 0 2px 4px #0000002e;
+}
+
+.add button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #50b286;
+  border: 0;
+  border-radius: 5px;
+  margin-left: 4px;
+  padding: 10px;
+  font-size: 20px;
+  box-shadow: 0 2px 4px #0000002e;
+}
+
+@media (width <= 1080px) {
+  .kanban {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+/*# sourceMappingURL=index.3a01df49.css.map */
