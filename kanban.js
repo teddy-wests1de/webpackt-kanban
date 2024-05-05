@@ -10,7 +10,21 @@ export default class Kanban {
     return data.tasks;
   }
 
-  static insertTask(columnId, content) {}
+  static insertTask(columnId, content) {
+    const data = read();
+    const column = data.find((column) => {
+      return column.columnId == columnId;
+    });
+
+    const task = {
+      taskId: Math.floor(Math.random() * 100000),
+      content: content,
+    };
+    column.tasks.push(task);
+    localStorage.setItem("data", JSON.stringify(data));
+    // console.log(data);
+    return task;
+  }
 
   static updateTask(taskId, updatedInformation) {}
 
@@ -24,6 +38,14 @@ export default class Kanban {
 
 function read() {
   const data = localStorage.getItem("data");
+
+  if (!data) {
+    return [
+      { columnId: 0, tasks: [] },
+      { columnId: 1, tasks: [] },
+      { columnId: 2, tasks: [] },
+    ];
+  }
   return JSON.parse(data);
 }
 

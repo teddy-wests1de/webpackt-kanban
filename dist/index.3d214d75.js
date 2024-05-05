@@ -585,11 +585,11 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"bB7Pu":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _kanbanJs = require("./kanban.js");
+var _kanbanJs = require("./kanban.js"); // console.log(Kanban.getAllTasks());
+ // console.log(Kanban.getTasks(0));
+ // const data = Kanban.getAllTasks();
+ // Kanban.insertTask(1, "Elrico Landrew's Test Task.");
 var _kanbanJsDefault = parcelHelpers.interopDefault(_kanbanJs);
-console.log((0, _kanbanJsDefault.default).getAllTasks());
-console.log((0, _kanbanJsDefault.default).getTasks(0));
-const data = (0, _kanbanJsDefault.default).getAllTasks();
 
 },{"./kanban.js":"99Gas","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"99Gas":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -602,7 +602,20 @@ class Kanban {
         if (!data) return [];
         return data.tasks;
     }
-    static insertTask(columnId, content) {}
+    static insertTask(columnId, content) {
+        const data = read();
+        const column = data.find((column)=>{
+            return column.columnId == columnId;
+        });
+        const task = {
+            taskId: Math.floor(Math.random() * 100000),
+            content: content
+        };
+        column.tasks.push(task);
+        localStorage.setItem("data", JSON.stringify(data));
+        // console.log(data);
+        return task;
+    }
     static updateTask(taskId, updatedInformation) {}
     static deleteTask(taskId) {}
     static getAllTasks() {
@@ -613,6 +626,20 @@ class Kanban {
 exports.default = Kanban;
 function read() {
     const data = localStorage.getItem("data");
+    if (!data) return [
+        {
+            columnId: 0,
+            tasks: []
+        },
+        {
+            columnId: 1,
+            tasks: []
+        },
+        {
+            columnId: 2,
+            tasks: []
+        }
+    ];
     return JSON.parse(data);
 } // function save() {}
 
