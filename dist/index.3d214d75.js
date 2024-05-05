@@ -588,7 +588,15 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _kanbanJs = require("./kanban.js"); // console.log(Kanban.getAllTasks());
  // console.log(Kanban.getTasks(0));
  // const data = Kanban.getAllTasks();
- // Kanban.insertTask(1, "Elrico Landrew's Test Task.");
+ // Kanban.insertTask(2, "Column 3, Task 3.");
+ // console.log(Kanban.deleteTask(68632));
+ // Kanban.deleteTask();
+ // console.log(Kanban.getAllTasks());
+ // Kanban.updateTask(50583, {
+ //   columnId: 2,
+ //   content: "Record Javascript...!",
+ // });
+ // console.log(Kanban.getAllTasks());
 var _kanbanJsDefault = parcelHelpers.interopDefault(_kanbanJs);
 
 },{"./kanban.js":"99Gas","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"99Gas":[function(require,module,exports) {
@@ -612,12 +620,41 @@ class Kanban {
             content: content
         };
         column.tasks.push(task);
-        localStorage.setItem("data", JSON.stringify(data));
+        save(data);
         // console.log(data);
         return task;
     }
-    static updateTask(taskId, updatedInformation) {}
-    static deleteTask(taskId) {}
+    static updateTask(taskId, updatedInformation) {
+        const data = read();
+        function findColumnTask() {
+            for (const column of data){
+                const task = column.tasks.find((task)=>task.taskId == taskId);
+                // console.log(task);
+                if (task) return [
+                    task,
+                    column
+                ];
+            }
+        }
+        const [task, currentColumn] = findColumnTask();
+        // console.log(task);
+        const targetColumn = data.find((column)=>{
+            return column.columnId == updatedInformation.columnId;
+        });
+        task.content = updatedInformation.content;
+        currentColumn.tasks.splice(currentColumn.tasks.indexOf(task));
+        targetColumn.tasks.push(task);
+        save(data);
+    }
+    static deleteTask(taskId) {
+        const data = read();
+        data.map((column)=>{
+            const task = column.tasks.find((task)=>task.taskId == taskId);
+            column.tasks.splice(column.tasks.indexOf(task), 1);
+        });
+        save(data);
+        return data;
+    }
     static getAllTasks() {
         const data = read();
         return data;
@@ -641,7 +678,10 @@ function read() {
         }
     ];
     return JSON.parse(data);
-} // function save() {}
+}
+function save(data) {
+    localStorage.setItem("data", JSON.stringify(data));
+}
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {

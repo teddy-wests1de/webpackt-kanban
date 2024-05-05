@@ -21,14 +21,46 @@ export default class Kanban {
       content: content,
     };
     column.tasks.push(task);
-    localStorage.setItem("data", JSON.stringify(data));
+    save(data);
     // console.log(data);
     return task;
   }
 
-  static updateTask(taskId, updatedInformation) {}
+  static updateTask(taskId, updatedInformation) {
+    const data = read();
 
-  static deleteTask(taskId) {}
+    function findColumnTask() {
+      for (const column of data) {
+        const task = column.tasks.find((task) => task.taskId == taskId);
+        // console.log(task);
+        if (task) {
+          return [task, column];
+        }
+      }
+    }
+    const [task, currentColumn] = findColumnTask();
+    // console.log(task);
+
+    const targetColumn = data.find((column) => {
+      return column.columnId == updatedInformation.columnId;
+    });
+
+    task.content = updatedInformation.content;
+    currentColumn.tasks.splice(currentColumn.tasks.indexOf(task));
+    targetColumn.tasks.push(task);
+
+    save(data);
+  }
+
+  static deleteTask(taskId) {
+    const data = read();
+    data.map((column) => {
+      const task = column.tasks.find((task) => task.taskId == taskId);
+      column.tasks.splice(column.tasks.indexOf(task), 1);
+    });
+    save(data);
+    return data;
+  }
 
   static getAllTasks() {
     const data = read();
@@ -49,4 +81,6 @@ function read() {
   return JSON.parse(data);
 }
 
-// function save() {}
+function save(data) {
+  localStorage.setItem("data", JSON.stringify(data));
+}
