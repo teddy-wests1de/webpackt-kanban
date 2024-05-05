@@ -585,19 +585,48 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"bB7Pu":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _kanbanJs = require("./kanban.js"); // console.log(Kanban.getAllTasks());
- // console.log(Kanban.getTasks(0));
- // const data = Kanban.getAllTasks();
- // Kanban.insertTask(2, "Column 3, Task 3.");
- // console.log(Kanban.deleteTask(68632));
- // Kanban.deleteTask();
- // console.log(Kanban.getAllTasks());
- // Kanban.updateTask(50583, {
- //   columnId: 2,
- //   content: "Record Javascript...!",
- // });
- // console.log(Kanban.getAllTasks());
+var _kanbanJs = require("./kanban.js");
 var _kanbanJsDefault = parcelHelpers.interopDefault(_kanbanJs);
+const todo = document.querySelector(".cards.todo");
+const pending = document.querySelector(".cards.pending");
+const completed = document.querySelector(".cards.completed");
+const taskBox = [
+    todo,
+    pending,
+    completed
+];
+const addTaskCard = function(task, index) {
+    const element = document.createElement("form");
+    element.className = "card";
+    element.draggable = true;
+    element.dataset.id = task.taskId;
+    element.innerHTML = `
+    <input
+      value="${task.content}"
+      type="text"
+      name="task"
+      autocomplete="off"
+      disabled="disabled"
+    />
+    <div>
+      <span class="task-id">#${task.taskId}</span>
+      <span>
+        <button class="bi bi-pencil edit" data-id="${task.taskId}"></button>
+        <button
+          class="bi bi-check-lg update hide"
+          data-id="${task.taskId}"
+        ></button>
+        <button class="bi bi-trash3 delete" data-id="${task.taskId}"></button>
+      </span>
+    </div>
+    `;
+    taskBox[index].appendChild(element);
+};
+(0, _kanbanJsDefault.default).getAllTasks().forEach((tasks, index)=>{
+    tasks.forEach((task)=>{
+        addTaskCard(task, index);
+    });
+}); // console.log(Kanban.getAllTasks());
 
 },{"./kanban.js":"99Gas","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"99Gas":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -657,7 +686,12 @@ class Kanban {
     }
     static getAllTasks() {
         const data = read();
-        return data;
+        columnCount();
+        return [
+            data[0].tasks,
+            data[1].tasks,
+            data[2].tasks
+        ];
     }
 }
 exports.default = Kanban;
@@ -681,7 +715,28 @@ function read() {
 }
 function save(data) {
     localStorage.setItem("data", JSON.stringify(data));
+    columnCount();
 }
+const columnCount = function() {
+    const data = read();
+    const todo = document.querySelector("span.todo");
+    todo.textContent = data[0].tasks.length;
+    const pending = document.querySelector("span.pending");
+    todo.textContent = data[1].tasks.length;
+    const completed = document.querySelector("span.completed");
+    todo.textContent = data[2].tasks.length;
+}; // console.log(Kanban.getAllTasks());
+ // console.log(Kanban.getTasks(0));
+ // const data = Kanban.getAllTasks();
+ // Kanban.insertTask(0, "Record Kanban Lectures");
+ // console.log(Kanban.deleteTask(68632));
+ // Kanban.deleteTask();
+ // console.log(Kanban.getAllTasks());
+ // Kanban.updateTask(50583, {
+ //   columnId: 2,
+ //   content: "Record Javascript...!",
+ // });
+ // console.log(Kanban.getAllTasks());
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {

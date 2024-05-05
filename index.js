@@ -1,16 +1,43 @@
 import Kanban from "./kanban.js";
 
-// console.log(Kanban.getAllTasks());
-// console.log(Kanban.getTasks(0));
-// const data = Kanban.getAllTasks();
+const todo = document.querySelector(".cards.todo");
+const pending = document.querySelector(".cards.pending");
+const completed = document.querySelector(".cards.completed");
 
-// Kanban.insertTask(2, "Column 3, Task 3.");
-// console.log(Kanban.deleteTask(68632));
-// Kanban.deleteTask();
+const taskBox = [todo, pending, completed];
 
-// console.log(Kanban.getAllTasks());
-// Kanban.updateTask(50583, {
-//   columnId: 2,
-//   content: "Record Javascript...!",
-// });
+const addTaskCard = function (task, index) {
+  const element = document.createElement("form");
+  element.className = "card";
+  element.draggable = true;
+  element.dataset.id = task.taskId;
+  element.innerHTML = `
+    <input
+      value="${task.content}"
+      type="text"
+      name="task"
+      autocomplete="off"
+      disabled="disabled"
+    />
+    <div>
+      <span class="task-id">#${task.taskId}</span>
+      <span>
+        <button class="bi bi-pencil edit" data-id="${task.taskId}"></button>
+        <button
+          class="bi bi-check-lg update hide"
+          data-id="${task.taskId}"
+        ></button>
+        <button class="bi bi-trash3 delete" data-id="${task.taskId}"></button>
+      </span>
+    </div>
+    `;
+  taskBox[index].appendChild(element);
+};
+
+Kanban.getAllTasks().forEach((tasks, index) => {
+  tasks.forEach((task) => {
+    addTaskCard(task, index);
+  });
+});
+
 // console.log(Kanban.getAllTasks());

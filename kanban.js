@@ -64,7 +64,8 @@ export default class Kanban {
 
   static getAllTasks() {
     const data = read();
-    return data;
+    columnCount();
+    return [data[0].tasks, data[1].tasks, data[2].tasks];
   }
 }
 
@@ -83,4 +84,33 @@ function read() {
 
 function save(data) {
   localStorage.setItem("data", JSON.stringify(data));
+  columnCount();
 }
+
+const columnCount = function () {
+  const data = read();
+
+  const todo = document.querySelector("span.todo");
+  todo.textContent = data[0].tasks.length;
+
+  const pending = document.querySelector("span.pending");
+  todo.textContent = data[1].tasks.length;
+
+  const completed = document.querySelector("span.completed");
+  todo.textContent = data[2].tasks.length;
+};
+
+// console.log(Kanban.getAllTasks());
+// console.log(Kanban.getTasks(0));
+// const data = Kanban.getAllTasks();
+
+// Kanban.insertTask(0, "Record Kanban Lectures");
+// console.log(Kanban.deleteTask(68632));
+// Kanban.deleteTask();
+
+// console.log(Kanban.getAllTasks());
+// Kanban.updateTask(50583, {
+//   columnId: 2,
+//   content: "Record Javascript...!",
+// });
+// console.log(Kanban.getAllTasks());
