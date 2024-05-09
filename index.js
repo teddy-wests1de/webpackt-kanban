@@ -22,10 +22,10 @@ const addTaskCard = function (task, index) {
     <div>
       <span class="task-id">#${task.taskId}</span>
       <span>
-        <button class="bi bi-pencil edit" data-id="${task.taskId}"></button>
+        <button class="bi bi-pencil edit" data-id="${task.taskId}" data-column="${index}"></button>
         <button
           class="bi bi-check-lg update hide"
-          data-id="${task.taskId}"
+          data-id="${task.taskId}" data-column="${index}"
         ></button>
         <button class="bi bi-trash3 delete" data-id="${task.taskId}"></button>
       </span>
@@ -55,5 +55,36 @@ addForm.forEach((form) => {
     );
     addTaskCard(task, form.submit.dataset.id);
     form.reset();
+  });
+});
+
+taskBox.forEach((column) => {
+  column.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (event.target.classList.contains("edit")) {
+      event.target.parentElement.parentElement.previousElementSibling.removeAttribute(
+        "disabled"
+      );
+      event.target.classList.add("hide");
+      event.target.nextElementSibling.classList.remove("hide");
+    }
+    if (event.target.classList.contains("update")) {
+      event.target.parentElement.parentElement.previousElementSibling.setAttribute(
+        "disabled",
+        "disabled"
+      );
+      event.target.classList.add("hide");
+      event.target.previousElementSibling.classList.remove("hide");
+      const taskId = event.target.dataset.id;
+      const columnId = event.target.dataset.column;
+      const content =
+        event.target.parentElement.parentElement.previousElementSibling.value;
+      console.log(taskId, columnId, content);
+
+      Kanban.updateTask(taskId, {
+        columnId: columnId,
+        content: content,
+      });
+    }
   });
 });
