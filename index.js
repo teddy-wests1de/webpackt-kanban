@@ -32,12 +32,28 @@ const addTaskCard = function (task, index) {
     </div>
     `;
   taskBox[index].appendChild(element);
+  return index;
 };
 
+// addTaskCard();
 Kanban.getAllTasks().forEach((tasks, index) => {
   tasks.forEach((task) => {
     addTaskCard(task, index);
   });
 });
 
-// console.log(Kanban.getAllTasks());
+console.log(Kanban.getAllTasks());
+
+const addForm = document.querySelectorAll(".add");
+
+addForm.forEach((form) => {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const task = Kanban.insertTask(
+      form.submit.dataset.id,
+      form.task.value.trim()
+    );
+    addTaskCard(task, form.submit.dataset.id);
+    form.reset();
+  });
+});

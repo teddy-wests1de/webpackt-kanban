@@ -621,12 +621,24 @@ const addTaskCard = function(task, index) {
     </div>
     `;
     taskBox[index].appendChild(element);
+    return index;
 };
+// addTaskCard();
 (0, _kanbanJsDefault.default).getAllTasks().forEach((tasks, index)=>{
     tasks.forEach((task)=>{
         addTaskCard(task, index);
     });
-}); // console.log(Kanban.getAllTasks());
+});
+console.log((0, _kanbanJsDefault.default).getAllTasks());
+const addForm = document.querySelectorAll(".add");
+addForm.forEach((form)=>{
+    form.addEventListener("submit", (event)=>{
+        event.preventDefault();
+        const task = (0, _kanbanJsDefault.default).insertTask(form.submit.dataset.id, form.task.value.trim());
+        addTaskCard(task, form.submit.dataset.id);
+        form.reset();
+    });
+});
 
 },{"./kanban.js":"99Gas","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"99Gas":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -722,9 +734,9 @@ const columnCount = function() {
     const todo = document.querySelector("span.todo");
     todo.textContent = data[0].tasks.length;
     const pending = document.querySelector("span.pending");
-    todo.textContent = data[1].tasks.length;
+    pending.textContent = data[1].tasks.length;
     const completed = document.querySelector("span.completed");
-    todo.textContent = data[2].tasks.length;
+    completed.textContent = data[2].tasks.length;
 }; // console.log(Kanban.getAllTasks());
  // console.log(Kanban.getTasks(0));
  // const data = Kanban.getAllTasks();

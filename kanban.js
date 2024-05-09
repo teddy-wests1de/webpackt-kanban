@@ -94,10 +94,10 @@ const columnCount = function () {
   todo.textContent = data[0].tasks.length;
 
   const pending = document.querySelector("span.pending");
-  todo.textContent = data[1].tasks.length;
+  pending.textContent = data[1].tasks.length;
 
   const completed = document.querySelector("span.completed");
-  todo.textContent = data[2].tasks.length;
+  completed.textContent = data[2].tasks.length;
 };
 
 // console.log(Kanban.getAllTasks());
