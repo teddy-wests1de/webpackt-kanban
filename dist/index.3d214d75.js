@@ -642,23 +642,29 @@ addForm.forEach((form)=>{
 taskBox.forEach((column)=>{
     column.addEventListener("click", (event)=>{
         event.preventDefault();
+        const formInput = event.target.parentElement.parentElement.previousElementSibling;
         if (event.target.classList.contains("edit")) {
-            event.target.parentElement.parentElement.previousElementSibling.removeAttribute("disabled");
+            formInput.removeAttribute("disabled");
             event.target.classList.add("hide");
             event.target.nextElementSibling.classList.remove("hide");
         }
         if (event.target.classList.contains("update")) {
-            event.target.parentElement.parentElement.previousElementSibling.setAttribute("disabled", "disabled");
+            formInput.setAttribute("disabled", "disabled");
             event.target.classList.add("hide");
             event.target.previousElementSibling.classList.remove("hide");
             const taskId = event.target.dataset.id;
             const columnId = event.target.dataset.column;
-            const content = event.target.parentElement.parentElement.previousElementSibling.value;
+            const content = formInput.value;
             console.log(taskId, columnId, content);
             (0, _kanbanJsDefault.default).updateTask(taskId, {
                 columnId: columnId,
                 content: content
             });
+        }
+        if (event.target.classList.contains("delete")) {
+            event.preventDefault();
+            formInput.parentElement.remove();
+            (0, _kanbanJsDefault.default).deleteTask(event.target.dataset.id);
         }
     });
 });
@@ -714,7 +720,8 @@ class Kanban {
         const data = read();
         data.map((column)=>{
             const task = column.tasks.find((task)=>task.taskId == taskId);
-            column.tasks.splice(column.tasks.indexOf(task), 1);
+            console.log(task);
+            if (task) column.tasks.splice(column.tasks.indexOf(task), 1);
         });
         save(data);
         return data;

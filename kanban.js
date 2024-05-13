@@ -56,7 +56,8 @@ export default class Kanban {
     const data = read();
     data.map((column) => {
       const task = column.tasks.find((task) => task.taskId == taskId);
-      column.tasks.splice(column.tasks.indexOf(task), 1);
+      console.log(task);
+      if (task) column.tasks.splice(column.tasks.indexOf(task), 1);
     });
     save(data);
     return data;

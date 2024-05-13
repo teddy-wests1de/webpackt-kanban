@@ -1,7 +1,7 @@
 5875
 71/home/elrico/Desktop/external-projects/javascript-ul-main/284/style.css1714943904031131195 0
 72/home/elrico/Desktop/external-projects/javascript-ul-main/284/index.html1715280934005414307 0
-70/home/elrico/Desktop/external-projects/javascript-ul-main/284/index.js1715284704979334959 0
+70/home/elrico/Desktop/external-projects/javascript-ul-main/284/index.js1715633727863508388 0
 95/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/css-select/README.md1714592457762438681 0
 100/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/css-select/lib/compile.js1714592457462433896 0
 97/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/css-select/lib/sort.js1714592457582435810 0
@@ -1796,7 +1796,7 @@
 106/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/csso/cjs/clean/TypeSelector.cjs1714592457654436958 0
 115/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/caniuse-lite/data/features/nav-timing.js1714592459578468063 0
 153/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/@parcel/optimizer-htmlnano/node_modules/css-tree/lib/syntax/node/IdSelector.js1714592459038459240 0
-89/home/elrico/Desktop/external-projects/javascript-ul-main/284/dist/index.3a01df49.css.map1715284162149939303 0
+89/home/elrico/Desktop/external-projects/javascript-ul-main/284/dist/index.3a01df49.css.map1715284707407366241 0
 122/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/@parcel/transformer-image/src/validateConfig.js1714592457422433258 0
 121/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/csso/node_modules/css-tree/cjs/utils/index.cjs1714592457818439573 0
 136/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/csso/node_modules/css-tree/cjs/syntax/function/expression.cjs1714592457718437978 0
@@ -2236,7 +2236,7 @@
 101/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/caniuse-lite/data/features1714592459718470351 1
 124/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/css-tree/cjs/syntax/node/common/feature-range.cjs1714592457714437915 0
 105/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/@swc/helpers/esm/_ts_values.js1714592459182461593 0
-87/home/elrico/Desktop/external-projects/javascript-ul-main/284/dist/favicon.88402922.ico1715284161293934371 0
+87/home/elrico/Desktop/external-projects/javascript-ul-main/284/dist/favicon.88402922.ico1715284706307352064 0
 122/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/@swc/helpers/src/_object_without_properties.mjs1714592459570467933 0
 106/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/caniuse-lite/data/regions/IT.js1714592459498466756 0
 97/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/@parcel/fs/src/find.js1714592457406433003 0
@@ -2354,7 +2354,7 @@
 135/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/htmlnano/docs/versioned_sidebars/version-2.0.0-sidebars.json1714592459058459567 0
 106/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/caniuse-lite/data/regions/GW.js1714592459462466168 0
 151/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/@parcel/optimizer-svgo/node_modules/css-tree/lib/syntax/node/TypeSelector.js1714592459222462246 0
-85/home/elrico/Desktop/external-projects/javascript-ul-main/284/dist/index.3a01df49.css1715284162145939281 0
+85/home/elrico/Desktop/external-projects/javascript-ul-main/284/dist/index.3a01df49.css1715284707403366191 0
 106/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/caniuse-lite/data/regions/MG.js1714592459554467671 0
 150/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/@parcel/optimizer-svgo/node_modules/csso/lib/replace/property/background.js1714592457526434916 0
 141/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/@parcel/optimizer-htmlnano/node_modules/css-tree/lib/syntax/pseudo1714592459202461920 1
@@ -2438,7 +2438,7 @@
 101/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/@parcel/node-resolver-core1714592457410433066 1
 106/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/caniuse-lite/data/regions/HU.js1714592459470466299 0
 106/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/@parcel/transformer-postcss/lib1714592457422433258 1
-71/home/elrico/Desktop/external-projects/javascript-ul-main/284/kanban.js1715283981783563368 0
+71/home/elrico/Desktop/external-projects/javascript-ul-main/284/kanban.js1715632948043704542 0
 80/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/tslib1714592457490434341 1
 140/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/css-select/node_modules/entities/lib/generated/decode-data-xml.js1714592457470434022 0
 105/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/lmdb/bin/download-prebuilds.js1714592459270463031 0
@@ -2835,7 +2835,7 @@
 114/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/node-gyp-build-optional-packages/bin.js1714592457326431727 0
 99/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/cosmiconfig/dist/util.js1714592457462433896 0
 118/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/caniuse-lite/data/features/link-icon-png.js1714592459522467149 0
-77/home/elrico/Desktop/external-projects/javascript-ul-main/284/dist/index.html1715284161577936007 0
+77/home/elrico/Desktop/external-projects/javascript-ul-main/284/dist/index.html1715284706371352889 0
 111/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/@parcel/core/src/UncommittedAsset.js1714592459338464142 0
 120/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/@swc/helpers/cjs/_class_private_field_set.cjs1714592457554435363 0
 119/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/css-tree/cjs/definition-syntax/tokenizer.cjs1714592459142460939 0
@@ -2936,7 +2936,7 @@
 115/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/caniuse-lite/data/features/word-break.js1714592459714470286 0
 116/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/caniuse-lite/data/features/input-event.js1714592459486466560 0
 134/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/lmdb/dependencies/lz4/lib/dll/example/fullbench-dll.vcxproj1714592459338464142 0
-84/home/elrico/Desktop/external-projects/javascript-ul-main/284/dist/index.3d214d75.js1715284162009938494 0
+84/home/elrico/Desktop/external-projects/javascript-ul-main/284/dist/index.3d214d75.js1715284707131362683 0
 111/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/caniuse-lite/data/features/dialog.js1714592459366464600 0
 122/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/@babel/helper-validator-identifier/lib/index.js1714592457398432874 0
 123/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/@swc/helpers/cjs/_initializer_warning_helper.cjs1714592457662437086 0
@@ -3196,7 +3196,7 @@
 114/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/caniuse-lite/data/features/mpeg-dash.js1714592459562467802 0
 123/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/caniuse-lite/data/features/element-from-point.js1714592459398465122 0
 100/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/@parcel/rust/package.json1714592459022458979 0
-88/home/elrico/Desktop/external-projects/javascript-ul-main/284/dist/index.3d214d75.js.map1715284162009938494 0
+88/home/elrico/Desktop/external-projects/javascript-ul-main/284/dist/index.3d214d75.js.map1715284707131362683 0
 99/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/css-tree/data/patch.json1714592459422465514 0
 108/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/caniuse-lite/data/features/svg.js1714592459658469371 0
 109/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/csso/node_modules/css-tree/LICENSE1714592457334431854 0
@@ -3601,7 +3601,7 @@
 125/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/lmdb/dependencies/lmdb/libraries/liblmdb/intro.doc1714592459210462050 0
 125/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/lmdb/dependencies/lmdb/libraries/liblmdb/chacha8.h1714592459214462116 0
 126/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/lmdb/dependencies/lmdb/libraries/liblmdb/mdb_drop.11714592457626436511 0
-66/home/elrico/Desktop/external-projects/javascript-ul-main/284/dist1715284162149939303 1
+66/home/elrico/Desktop/external-projects/javascript-ul-main/284/dist1715284707407366241 1
 93/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/color-name/LICENSE1714592457338431917 0
 126/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/lmdb/dependencies/lmdb/libraries/liblmdb/mdb_stat.11714592457650436893 0
 122/home/elrico/Desktop/external-projects/javascript-ul-main/284/node_modules/@swc/helpers/cjs/_class_private_method_init.cjs1714592457570435617 0
