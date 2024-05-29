@@ -667,6 +667,25 @@ taskBox.forEach((column)=>{
             (0, _kanbanJsDefault.default).deleteTask(event.target.dataset.id);
         }
     });
+    column.addEventListener("dragstart", (event)=>{
+        if (event.target.classList.contains("card")) event.target.classList.add("dragging");
+    });
+    column.addEventListener("dragover", (event)=>{
+        const card = document.querySelector(".dragging");
+        column.appendChild(card);
+    });
+    column.addEventListener("dragend", (event)=>{
+        if (event.target.classList.contains("card")) {
+            event.target.classList.remove("dragging");
+            const taskId = event.target.dataset.id;
+            const columnId = event.target.parentElement.dataset.id;
+            const content = event.target.task.value;
+            (0, _kanbanJsDefault.default).updateTask(taskId, {
+                columnId,
+                content
+            });
+        }
+    });
 });
 
 },{"./kanban.js":"99Gas","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"99Gas":[function(require,module,exports) {
